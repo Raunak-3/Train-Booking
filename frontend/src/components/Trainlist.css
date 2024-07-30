@@ -1,0 +1,38 @@
+.trainlist-container {
+    background-image: url('D:/desktop/irctc booking webapp/images/andy-holmes-oEIFOoC3gi0-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.trainlist-box {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.trainlist-box h1 {
+    margin-bottom: 20px;
+}
+
+.trainlist-box ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.trainlist-box li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.trainlist-box li:last-child {
+    border-bottom: none;
+}

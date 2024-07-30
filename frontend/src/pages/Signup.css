@@ -1,0 +1,42 @@
+.signup-container {
+    background-image: url('D:/desktop/irctc booking webapp/images/nikita-kachanovsky-L7CwfCSmpfM-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-box {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 2 2 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    justify-content:center;
+    text-align: center;
+    z-index:0.8;
+}
+
+.signup-box input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 5px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.signup-box button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.signup-box button:hover {
+    background-color: #0056b3;
+}
