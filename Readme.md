@@ -1,7 +1,11 @@
 I have created the Railway Booking Webapp.
+
 I have attached the screenshot of all the pages including the admin page.
+
 I have used Mern technology to create this project.
-React.js, MongoDB Atlas database, Express.js, Node,js were used
+
+React.js, MongoDB Atlas database, Express.js, Node.js were used
+
 ![Screenshot (115)](https://github.com/user-attachments/assets/a2b74656-82d8-43f4-8382-04ed7b578bdb)
 ![Screenshot (114)](https://github.com/user-attachments/assets/44ba8b07-621f-4edc-9477-5fc6daaccb59)
 ![Screenshot (113)](https://github.com/user-attachments/assets/99e2c068-cbea-43ac-86a1-11c45b76d9e6)
