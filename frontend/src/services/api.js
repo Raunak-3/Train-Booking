@@ -10,19 +10,18 @@ export const login = (userData) => {
     return axios.post(`${API_URL}/users/login`, userData);
 };
 
-export const createTrain = (trainData) => {
-    return axios.post('/api/trains/create', trainData, {
-        headers: {
-            'auth-token': localStorage.getItem('authToken') // Include token for authentication
-        }
-    });
+// import axios from 'axios';
+
+export const createTrain = async (trainData) => {
+    return axios.post('/api/trains/create', trainData);
 };
 
+export const updateTrain = async (trainData) => {
+    return axios.put('/api/trains/update', trainData);
+};
 
-export const updateTrain = (trainData) => {
-    return axios.put('/api/trains/update', trainData, {
-        
-    });
+export const getTrainById = async (trainId) => {
+    return axios.get(`/api/trains/${trainId}`);
 };
 
 export const getTrainAvailability = async (source, destination) => {
