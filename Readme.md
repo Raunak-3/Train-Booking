@@ -14,7 +14,7 @@ React.js, MongoDB Atlas database, Express.js, Node.js were used
 
 ![Screenshot (113)](https://github.com/user-attachments/assets/99e2c068-cbea-43ac-86a1-11c45b76d9e6)
 
-![Screenshot (112)](https://github.com/user-attachments/assets/9aa43c61-de98-4519-aa39-c1866d0e1158)
+![Screenshot (118)](https://github.com/user-attachments/assets/0cf9856d-705a-414d-9efa-f5452686e7b8)
 
 ![Screenshot (111)](https://github.com/user-attachments/assets/9a6fa32e-9800-4a93-a099-85f68c5c2663)
 
