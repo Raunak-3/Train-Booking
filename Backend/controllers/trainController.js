@@ -1,19 +1,17 @@
-// controllers/trainController.js
 const Train = require('../models/Train');
-
-// const Train = require('../models/Train');
 
 exports.createTrain = async (req, res) => {
     try {
-        const { train_name, train_number, source, destination, seat_capacity, arrival_time_at_source, arrival_time_at_destination } = req.body;
+        const { train_name, train_number, source, destination, seat_capacity, seats_booked, arrival_time_at_source, arrival_time_at_destination } = req.body;
         const newTrain = new Train({
             train_name,
             train_number,
             source,
             destination,
             seat_capacity,
+            seats_booked,
             arrival_time_at_source,
-            arrival_time_at_destination
+            arrival_time_at_destination,
         });
         const savedTrain = await newTrain.save();
         res.status(201).json(savedTrain);
@@ -24,13 +22,14 @@ exports.createTrain = async (req, res) => {
 
 exports.updateTrain = async (req, res) => {
     try {
-        const { train_id, train_name, train_number, source, destination, seat_capacity, arrival_time_at_source, arrival_time_at_destination } = req.body;
+        const { train_id, train_name, train_number, source, destination, seat_capacity, seats_booked, arrival_time_at_source, arrival_time_at_destination } = req.body;
         const updatedTrain = await Train.findByIdAndUpdate(train_id, {
             train_name,
             train_number,
             source,
             destination,
             seat_capacity,
+            seats_booked,
             arrival_time_at_source,
             arrival_time_at_destination
         }, { new: true });
@@ -39,6 +38,17 @@ exports.updateTrain = async (req, res) => {
         res.status(500).json({ message: 'Error updating train', error: err });
     }
 };
+
+exports.getTrainById = async (req, res) => {
+    try {
+        const train = await Train.findById(req.params.id);
+        res.status(200).json(train);
+    } catch (err) {
+        res.status(500).json({ message: 'Error fetching train', error: err });
+    }
+};
+
+
 
 
 exports.getTrainAvailability = async (req, res) => {
