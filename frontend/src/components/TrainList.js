@@ -9,7 +9,7 @@ const TrainList = () => {
     const [trains, setTrains] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [seats, setSeats] = useState(1);
+    const [seats, setSeats] = useState({});
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
 
@@ -33,7 +33,7 @@ const TrainList = () => {
         }
     };
 
-    const handleBooking = (train_id, train_name, train_number, seats) => {
+    const handleBooking = (train_id, train_name, train_number) => {
         if (!isLoggedIn) {
             alert('User is not authenticated. Please login.');
             navigate('/login');
@@ -45,9 +45,17 @@ const TrainList = () => {
                 train_id,
                 train_name,
                 train_number,
-                no_of_seats: seats
+                no_of_seats: seats[train_id] // Default to 1 if no input
             }
         });
+    };
+
+    const handleSeatsChange = (train_id, value) => {
+        console.log(`Changing seats for train ${train_id} to ${value}`); // Debug log
+        setSeats(prevSeats => ({
+            ...prevSeats,
+            [train_id]: parseInt(value) // Default to 1 if NaN
+        }));
     };
 
     return (
@@ -74,18 +82,22 @@ const TrainList = () => {
                 <ul>
                     {trains.map(train => (
                         <li key={train.train_id}>
-                            Train Number: {train.train_number} - {train.train_name} - Available Seats: {train.available_seats}
+                            Train Number: {train.train_number} - Train Name: {train.train_name} - Available Seats: {train.available_seats}
                             {isLoggedIn && (
                                 <>
-                                    <input
-                                        type="number"
-                                        value={seats}
-                                        onChange={(e) => setSeats(parseInt(e.target.value))}
-                                        min="1"
-                                        max={train.available_seats}
-                                        placeholder="Seats"
-                                    />
-                                    <button onClick={() => handleBooking(train.train_id, train.train_name, train.train_number, seats)}>Book</button>
+                                    <p style={{ display: 'flex', alignItems: 'center' }}>
+                                        Total Seats to Book: 
+                                        <input
+                                            type="number"
+                                            value={seats[train.train_id] || ''}
+                                            onChange={(e) => handleSeatsChange(train.train_id, e.target.value)}
+                                            min="1"
+                                            max={train.available_seats}
+                                            placeholder="Seats"
+                                            style={{ marginLeft: '10px' }}
+                                        />
+                                    </p>
+                                    <button onClick={() => handleBooking(train.train_id, train.train_name, train.train_number)}>Book</button>
                                 </>
                             )}
                         </li>
